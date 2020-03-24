@@ -1,0 +1,37 @@
+servicePrincipalName="https://$APP_NAME"
+servicePrincipalVault="https://$APP_NAME-KV"
+ 
+# do a regular login with .eu account
+az login
+az account set --subscription $SUBSCRIPTION_NAME
+appPrincipalId=`az ad sp show --id "$servicePrincipalName" | jq -r ".appId"`
+ 
+# generate random password
+echo " * Generating random green key"
+greenKey=`openssl rand -base64 32`
+appId=`az ad sp show --id "$servicePrincipalVault" | jq -r ".appId"`
+ 
+# updates the green key
+echo " * Updating green key"
+endDate=`date "+%Y-%m-%dT%H:%M:%S%:z" -d "+1 days"`
+az ad app update --id $appId --end-date $endDate --password $greenKey
+ 
+# login with green key
+az account clear
+echo " * Waiting for green key to be set correctly, trying in 35 seconds..."
+sleep 35
+echo " * Logging in with green key..."
+az login -u $appId -p $greenKey --service-principal --tenant "6e93a626-8aca-4dc1-9191-ce291b4b75a1" --allow-no-subscriptions
+ 
+# obtain red key
+redKey=`az keyvault secret show --vault-name $VAULT_NAME --name $APP_NAME | jq -r ".value"`
+echo " * Obtained red key: $redKey"
+ 
+# login with red key
+echo " * Logging in with red key..."
+az account clear
+az login -u $appPrincipalId -p $redKey --service-principal --tenant "6e93a626-8aca-4dc1-9191-ce291b4b75a1"
+
+
+#Get group from 
+az ad group show --group cld.aut.AzureData.cld.aut.SqlRdmsDEVPowerUser --output

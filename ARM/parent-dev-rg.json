@@ -1,0 +1,223 @@
+{
+    "source": 2,
+    "revision": 2,
+    "description": null,
+    "createdBy": {
+        "displayName": "Wouter Dijk",
+        "url": "https://app.vssps.visualstudio.com/A463182bb-55b2-4a41-9476-50659007d1ed/_apis/Identities/d02d2f8d-d080-6c0a-8899-7648b052fe31",
+        "_links": {
+            "avatar": {
+                "href": "https://raboweb.visualstudio.com/_apis/GraphProfile/MemberAvatars/aad.ZDAyZDJmOGQtZDA4MC03YzBhLTg4OTktNzY0OGIwNTJmZTMx"
+            }
+        },
+        "id": "d02d2f8d-d080-6c0a-8899-7648b052fe31",
+        "uniqueName": "Wouter.E.van.Dijk.eu@rabobank.com",
+        "imageUrl": "https://raboweb.visualstudio.com/_api/_common/identityImage?id=d02d2f8d-d080-6c0a-8899-7648b052fe31",
+        "descriptor": "aad.ZDAyZDJmOGQtZDA4MC03YzBhLTg4OTktNzY0OGIwNTJmZTMx"
+    },
+    "createdOn": "2019-01-10T09:51:36.997Z",
+    "modifiedBy": {
+        "displayName": "Wouter Dijk",
+        "url": "https://app.vssps.visualstudio.com/A463182bb-55b2-4a41-9476-50659007d1ed/_apis/Identities/d02d2f8d-d080-6c0a-8899-7648b052fe31",
+        "_links": {
+            "avatar": {
+                "href": "https://raboweb.visualstudio.com/_apis/GraphProfile/MemberAvatars/aad.ZDAyZDJmOGQtZDA4MC03YzBhLTg4OTktNzY0OGIwNTJmZTMx"
+            }
+        },
+        "id": "d02d2f8d-d080-6c0a-8899-7648b052fe31",
+        "uniqueName": "Wouter.E.van.Dijk.eu@rabobank.com",
+        "imageUrl": "https://raboweb.visualstudio.com/_api/_common/identityImage?id=d02d2f8d-d080-6c0a-8899-7648b052fe31",
+        "descriptor": "aad.ZDAyZDJmOGQtZDA4MC03YzBhLTg4OTktNzY0OGIwNTJmZTMx"
+    },
+    "modifiedOn": "2019-01-10T09:52:28.987Z",
+    "isDeleted": false,
+    "variables": {},
+    "variableGroups": [],
+    "environments": [
+        {
+            "id": 27,
+            "name": "Create ResourceGroup",
+            "rank": 1,
+            "owner": {
+                "displayName": "Wouter Dijk",
+                "url": "https://app.vssps.visualstudio.com/A463182bb-55b2-4a41-9476-50659007d1ed/_apis/Identities/d02d2f8d-d080-6c0a-8899-7648b052fe31",
+                "_links": {
+                    "avatar": {
+                        "href": "https://raboweb.visualstudio.com/_apis/GraphProfile/MemberAvatars/aad.ZDAyZDJmOGQtZDA4MC03YzBhLTg4OTktNzY0OGIwNTJmZTMx"
+                    }
+                },
+                "id": "d02d2f8d-d080-6c0a-8899-7648b052fe31",
+                "uniqueName": "Wouter.E.van.Dijk.eu@rabobank.com",
+                "imageUrl": "https://raboweb.visualstudio.com/_api/_common/identityImage?id=d02d2f8d-d080-6c0a-8899-7648b052fe31",
+                "descriptor": "aad.ZDAyZDJmOGQtZDA4MC03YzBhLTg4OTktNzY0OGIwNTJmZTMx"
+            },
+            "variables": {},
+            "variableGroups": [],
+            "preDeployApprovals": {
+                "approvals": [
+                    {
+                        "rank": 1,
+                        "isAutomated": true,
+                        "isNotificationOn": false,
+                        "id": 88
+                    }
+                ],
+                "approvalOptions": {
+                    "requiredApproverCount": null,
+                    "releaseCreatorCanBeApprover": false,
+                    "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+                    "enforceIdentityRevalidation": false,
+                    "timeoutInMinutes": 0,
+                    "executionOrder": 1
+                }
+            },
+            "deployStep": {
+                "id": 89
+            },
+            "postDeployApprovals": {
+                "approvals": [
+                    {
+                        "rank": 1,
+                        "isAutomated": true,
+                        "isNotificationOn": false,
+                        "id": 90
+                    }
+                ],
+                "approvalOptions": {
+                    "requiredApproverCount": null,
+                    "releaseCreatorCanBeApprover": false,
+                    "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+                    "enforceIdentityRevalidation": false,
+                    "timeoutInMinutes": 0,
+                    "executionOrder": 2
+                }
+            },
+            "deployPhases": [
+                {
+                    "deploymentInput": {
+                        "parallelExecution": {
+                            "parallelExecutionType": 0
+                        },
+                        "skipArtifactsDownload": false,
+                        "artifactsDownloadInput": {
+                            "downloadInputs": []
+                        },
+                        "queueId": 6961,
+                        "demands": [],
+                        "enableAccessToken": false,
+                        "timeoutInMinutes": 0,
+                        "jobCancelTimeoutInMinutes": 1,
+                        "condition": "succeeded()",
+                        "overrideInputs": {}
+                    },
+                    "rank": 1,
+                    "phaseType": 1,
+                    "name": "Agent job",
+                    "refName": null,
+                    "workflowTasks": [
+                        {
+                            "environment": {},
+                            "taskId": "4ac6d781-1b39-4d55-9664-3cc571c44da9",
+                            "version": "1.*",
+                            "name": "Create or Update a Resource Group",
+                            "refName": "rg",
+                            "enabled": true,
+                            "alwaysRun": false,
+                            "continueOnError": false,
+                            "timeoutInMinutes": 0,
+                            "definitionType": "task",
+                            "overrideInputs": {},
+                            "condition": "succeeded()",
+                            "inputs": {
+                                "ConnectedServiceNameSelector": "ConnectedServiceNameARM",
+                                "ConnectedServiceNameARM": "96471dac-4f0a-46db-90af-3c252d44ea51",
+                                "action": "create",
+                                "applicationName": "parent-dev-rg",
+                                "resourceGroupName": "",
+                                "location": "westeurope",
+                                "organisationalGroup": "eu.res.AADAzureGDRDMDevOps.us",
+                                "applicationCI": "",
+                                "incrementResourceGroupNameIfAlreadyExist": "false",
+                                "resourceGroupSuffixNumber": "1"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "environmentOptions": {
+                "emailNotificationType": "OnlyOnFailure",
+                "emailRecipients": "release.environment.owner;release.creator",
+                "skipArtifactsDownload": false,
+                "timeoutInMinutes": 0,
+                "enableAccessToken": false,
+                "publishDeploymentStatus": true,
+                "badgeEnabled": false,
+                "autoLinkWorkItems": false,
+                "pullRequestDeploymentEnabled": false
+            },
+            "demands": [],
+            "conditions": [
+                {
+                    "name": "ReleaseStarted",
+                    "conditionType": 1,
+                    "value": ""
+                }
+            ],
+            "executionPolicy": {
+                "concurrencyCount": 1,
+                "queueDepthCount": 0
+            },
+            "schedules": [],
+            "currentRelease": {
+                "id": 0,
+                "url": "https://raboweb.vsrm.visualstudio.com/af48e0ff-fde7-4652-b9a3-679fba853a0b/_apis/Release/releases/0",
+                "_links": {}
+            },
+            "retentionPolicy": {
+                "daysToKeep": 30,
+                "releasesToKeep": 3,
+                "retainBuild": true
+            },
+            "processParameters": {},
+            "properties": {},
+            "preDeploymentGates": {
+                "id": 0,
+                "gatesOptions": null,
+                "gates": []
+            },
+            "postDeploymentGates": {
+                "id": 0,
+                "gatesOptions": null,
+                "gates": []
+            },
+            "environmentTriggers": [],
+            "badgeUrl": "https://raboweb.vsrm.visualstudio.com/_apis/public/Release/badge/af48e0ff-fde7-4652-b9a3-679fba853a0b/12/27"
+        }
+    ],
+    "artifacts": [],
+    "triggers": [],
+    "releaseNameFormat": "Release-$(rev:r)",
+    "tags": [],
+    "pipelineProcess": {
+        "type": 1
+    },
+    "properties": {
+        "DefinitionCreationSource": {
+            "$type": "System.String",
+            "$value": "Other"
+        }
+    },
+    "id": 12,
+    "name": "parent-dev-rg",
+    "path": "\\DeployToAzure",
+    "projectReference": null,
+    "url": "https://raboweb.vsrm.visualstudio.com/af48e0ff-fde7-4652-b9a3-679fba853a0b/_apis/Release/definitions/12",
+    "_links": {
+        "self": {
+            "href": "https://raboweb.vsrm.visualstudio.com/af48e0ff-fde7-4652-b9a3-679fba853a0b/_apis/Release/definitions/12"
+        },
+        "web": {
+            "href": "https://raboweb.visualstudio.com/af48e0ff-fde7-4652-b9a3-679fba853a0b/_release?definitionId=12"
+        }
+    }
+}

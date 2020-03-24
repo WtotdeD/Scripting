@@ -1,0 +1,1 @@
+az ad group member add --group-object-id $(ad.ObjectID) --member-id a85ae65f-aab5-4a39-8a2f-d2f39fa7550f
