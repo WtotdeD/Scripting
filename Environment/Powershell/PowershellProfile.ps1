@@ -7,6 +7,10 @@
 ###    PS> New-Item $PROFILE.CurrentUserAllHosts -ItemType File -Force
 ### This will create the file and the containing subdirectory if it doesn't already 
 ###
+
+
+
+
 ### As a reminder, to enable unsigned script execution of local scripts on client Windows, 
 ### you need to run this line (or similar) from an elevated PowerShell prompt:
 ###   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
@@ -18,13 +22,19 @@ $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
 $principal = New-Object Security.Principal.WindowsPrincipal $identity
 $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
+
+#Set environment variables
+$Env:Code = "C:\Code\"
+$Env:Work = "C:\Users\WoutervanDijk"
+
+
 # If so and the current host is a command line, then change to red color 
 # as warning to user that they are operating in an elevated context
 if (($host.Name -match "ConsoleHost") -and ($isAdmin))
 {
-     $host.UI.RawUI.BackgroundColor = "DarkRed"
+     $host.UI.RawUI.BackgroundColor = "Black"
      $host.PrivateData.ErrorBackgroundColor = "White"
-     $host.PrivateData.ErrorForegroundColor = "DarkRed"
+     $host.PrivateData.ErrorForegroundColor = "Black"
      Clear-Host
 }
 
