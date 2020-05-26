@@ -74,6 +74,8 @@ if (Test-Path HKCU:\SOFTWARE\Microsoft\OneDrive)
     Remove-Variable onedrive
 }
 
+#
+
 # Set up command prompt and window title. Use UNIX-style convention for identifying 
 # whether user is elevated (root) or not. Window title shows current version of PowerShell
 # and appends [ADMIN] if appropriate for easy taskbar identification
