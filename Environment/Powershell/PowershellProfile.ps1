@@ -24,8 +24,8 @@ $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
 
 
 #Set environment variables
-$Env:Code = "C:\Code\"
-$Env:Work = "C:\Users\WoutervanDijk"
+$Env:Code = "D:\Code\"
+
 
 
 # If so and the current host is a command line, then change to red color 
@@ -49,11 +49,17 @@ function sha256 { Get-FileHash -Algorithm SHA256 $args }
 
 # Quick shortcut to start notepad
 function n      { notepad $args }
+function n+ { notepad++.exe $args}
 
 # Drive shortcuts
 function HKLM:  { Set-Location HKLM: }
 function HKCU:  { Set-Location HKCU: }
 function Env:   { Set-Location Env: }
+
+function Codebase:  { Set-Location D:\Code\ }
+function Azure:  { Set-Location D:\Azure\ }
+function Python:  { Set-Location D:\Python\ }
+function Scripting:  { Set-Location D:\Scripting\ }
 
 # Creates drive shortcut for Work Folders, if current user account is using it
 if (Test-Path "$env:USERPROFILE\Work Folders")
@@ -66,15 +72,17 @@ if (Test-Path "$env:USERPROFILE\Work Folders")
 if (Test-Path HKCU:\SOFTWARE\Microsoft\OneDrive)
 {
     $onedrive = Get-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive
-    if (Test-Path $onedrive.UserFolder)
+    if (!(Test-Path $onedrive.UserFolder))
     {
-        New-PSDrive -Name OneDrive -PSProvider FileSystem -Root $onedrive.UserFolder -Description "OneDrive"
+       
+       
+     New-PSDrive -Name OneDrive -PSProvider FileSystem -Root $onedrive.UserFolder -Description "OneDrive"
         function OneDrive: { Set-Location OneDrive: }
     }
     Remove-Variable onedrive
 }
 
-#
+
 
 # Set up command prompt and window title. Use UNIX-style convention for identifying 
 # whether user is elevated (root) or not. Window title shows current version of PowerShell
@@ -141,7 +149,7 @@ function Edit-Profile
     }
     else
     {
-        notepad $profile.CurrentUserAllHosts
+        notepad+ $profile.CurrentUserAllHosts
     }
 }
 
